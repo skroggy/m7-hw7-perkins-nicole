@@ -1,4 +1,5 @@
-
+var welcome = document.getElementById('city');
+var weather = document.getElementById('weather');
 
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
@@ -7,7 +8,11 @@ xmlhttp.onreadystatechange = function() {
 
         console.log(apiResult);
 
+        var city = document.createTextNode(apiResult.name);
+        welcome.appendChild(city);
 
+        var forecast = document.createTextNode(apiResult.weather[0].description);
+        weather.appendChild(forecast);
 
     }
 };
